@@ -7,16 +7,16 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `nombre` varchar(255) NOT NULL,
   `codigo` int(10) NOT NULL,
   `rol` varchar(45) NOT NULL,
-  PRIMARY KEY  (`id`)
+   primary key (`id`)
 ) 
-
+;
 -- estructura de tabla para la tabla 'programas'
 --
 CREATE TABLE PROGRAMAS
 		(CODFAC     varchar(5),
 		CCOSTO      varchar(8),
-		PROGRAMA  	varchar(5) PRIMARY KEY,
-	    COD_SNIES	varchar0(21),
+		PROGRAMA  	varchar(5) ,
+	    COD_SNIES	varchar(21),
 	    NOMBREP    	varchar(60),
 	    ESTADO    	varchar(4),
 	    TIPO_PROG   varchar(8),
@@ -44,129 +44,124 @@ CREATE TABLE PROGRAMAS
 	    DESC_PROG   varchar(2000),
 	    MISION      varchar(2000),
 	    PERFIL_ASP  varchar(2000),
-	    PERFIL_EGR  varchar(2000))   
+	    PERFIL_EGR  varchar(2000))   ;
 
   -- estructura de tabla para la tabla 'facultades'
-      CREATE TABLE FACULTADES;
-		(CODFAC     varchar(2) PRIMARY KEY,
+      CREATE TABLE FACULTADES
+		(CODFAC     varchar(2) ,
 		CCOSTO      varchar(8) ,
 	    NOMBREF    	varchar(62),
 	    NOMBRECOR   varchar(40),
-	    AREA     	varchar(50))
+	    AREA     	varchar(50));
 
   -- estructura de tabla para la tabla 'centro de costo'
 
-CREATE TABLE CENCOS;
-		(CCOSTO      varchar(8) PRIMARY KEY,
+CREATE TABLE CENCOS
+		(CCOSTO      varchar(8) ,
 		CODFAC       varchar(2),
 	    NOMBREC    	 varchar(100),
-	    CCOSTOANT    varchar(4),
-	    NOMBREC    	 varchar(100))
-
+	    CCOSTOANT    varchar(4));
+ 
   -- estructura de tabla para la tabla 'tipo inscripcion  '
-CREATE TABLE TIPO_INSCRIPCION;
-		 (TIPO_INSCR	varchar(8) PRIMARY KEY,
-		 DESCRIPCION	varchar(100))     
+CREATE TABLE TIPO_INSCRIPCION
+		 (TIPO_INSCR	varchar(8) ,
+		 DESCRIPCION	varchar(100))     ;
   -- estructura de tabla para la tabla 'tipo aceptacion '
 
-CREATE TABLE TIPO_ACEPTACION;
-		 (TIPO_ACEPT	varchar(8) PRIMARY KEY,
-		 DESCRIPCION	varchar(100)) 
+CREATE TABLE TIPO_ACEPTACION
+		 (TIPO_ACEPT	varchar(8) ,
+		 DESCRIPCION	varchar(100)) ;
 
   -- estructura de tabla para la tabla 'tipo admitidos '
-  CREATE TABLE ADMITIDOS;
+  CREATE TABLE ADMITIDOS
 		 (PROGRAMA		 varchar(5),
 		 SEMESTRE	 	 varchar(5),
 		 ADMITIDOS	int(3),
-		 CODFAC		     varchar(2),
-   PRIMARY KEY (PROGRAMA, SEMESTRE))  
+		 CODFAC		     varchar(2)   )  ;
 
 -- estructura de tabla para la tabla 'tipo admitidos desagregados  '
 
-CREATE ADMITIDOS_DES;
-		 (PROGRAMA		 varchar(5),
+CREATE TABLE ADMITIDOS_DES 
+(                PROGRAMA		 varchar(5),
 		 SEMESTRE		 varchar(5),
-		 tipo_acept		 varchar(8),
+		 TIPO_ACEP		 varchar(8),
 		 ADMITIDOS	int(3),
-		 CODFAC          varchar(2),
-     PRIMARY KEY (PROGRAMA, SEMESTRE)) 
+		 CODFAC          varchar(2)) ;
 
 -- estructura de tabla para la tabla 'cupos '
 
-CREATE TABLE CUPOS;
+CREATE TABLE CUPOS
 		 (PROGRAMA		 varchar(5),
 		 SEMESTRE		 varchar(5),
 		 CUPOS		int(3),
-		 CODFAC          varchar(2),
-    PRIMARY KEY (PROGRAMA, SEMESTRE))
+		 CODFAC          varchar(2)   );
 
 -- estructura de tabla para la tabla 'cupos desagregados '
 
-CREATE TABLE CUPOS_DES;
+CREATE TABLE CUPOS_DES
 		 (PROGRAMA		varchar(5),
 		 SEMESTRE		varchar(5),
 		 TIPO_INSCR		varchar(8),
 		 CUPOS		int(3),
-		 CODFAC          varchar(2),
-     PRIMARY KEY (PROGRAMA, SEMESTRE))
+		 CODFAC          varchar(2)
+     );
 
 -- estructura de tabla para la tabla 'inscritos'
-CREATE TABLE INSCRITOS;
+CREATE TABLE INSCRITOS
 		 (PROGRAMA		 varchar(5),
 		 SEMESTRE		 varchar(5),
 		 INSCRITOS	int(3),
-		 CODFAC          varchar(2),
-     PRIMARY KEY (PROGRAMA, SEMESTRE))
+		 CODFAC          varchar(2)
+     );
 
 -- estructura de tabla para la tabla 'inscritos desagregados'
 
-CREATE TABLE INSCRITOS_DES;
+CREATE TABLE INSCRITOS_DES
 		 (PROGRAMA		 varchar(5),
 		 SEMESTRE		 varchar(5),
 		 TIPO_INSCR		 varchar(8),
 		 INSCRITOS	int(3),
-		 CODFAC          varchar(2),
-     PRIMARY KEY (PROGRAMA, SEMESTRE))
+		 CODFAC          varchar(2)
+     );
 
 -- estructura de tabla para la tabla 'cortes de examen'
 
-CREATE CORTES;
+CREATE TABLE CORTES
 		 (PROGRAMA		 varchar(5),
 		 SEMESTRE		 varchar(5),
 		 CORTE   	float(6,2),
-		 CODFAC          varchar(2),
-     PRIMARY KEY (PROGRAMA, SEMESTRE))
+		 CODFAC          varchar(2)
+     );
 
 -- estructura de tabla para la tabla 'promedios de examen'
 
-CREATE TABLE PROMEDIOS;
+CREATE TABLE PROMEDIOS
 		 (PROGRAMA		 varchar(5),
 		 SEMESTRE		 varchar(5),
 		 PROMEDIO  	float(6,2),
-		 CODFAC          varchar(2),
-     PRIMARY KEY (PROGRAMA, SEMESTRE))
+		 CODFAC          varchar(2)
+     );
 
 -- estructura de tabla para la tabla 'matriculados'
 
-CREATE TABLE MATRICULADOS;
+CREATE TABLE MATRICULADOS
 		 (PROGRAMA		 varchar(5),
 		 SEMESTRE		 varchar(5),
 		 MATRICULAD	int(3),
-		 CODFAC          varchar(2),
-     PRIMARY KEY (PROGRAMA, SEMESTRE))
+		 CODFAC          varchar(2)
+     );
 
 -- estructura de tabla para la tabla 'matriculados * estrato'
-CREATE TABLE MATRIC_X_ESTRATO;
+CREATE TABLE MATRIC_X_ESTRATO
 		 (PROGRAMA		 varchar(5),
 		 SEMESTRE		 varchar(5),
 		 ESTRATO         varchar(1),
 		 MATRICULAD	int(5),
-		 CODFAC          varchar(2),
-    PRIMARY KEY (PROGRAMA, SEMESTRE , ESTRATO))
+		 CODFAC          varchar(2));
 
 -- estructura de tabla para la tabla 'matriculados estrato'
 
-CREATE TABLE MATRIC_ESTRATO;
+CREATE TABLE MATRIC_ESTRATO
 		 (PROGRAMA	      varchar(5),
 		 SEMESTRE	      varchar(5),
 		 ESTRATO1  int (4),
@@ -175,57 +170,57 @@ CREATE TABLE MATRIC_ESTRATO;
 		 ESTRATO4  int (4),
 		 ESTRATO5  int (4),
 		 ESTRATO6  int (4),
-		 CODFAC           varchar(2),
-     PRIMARY KEY (PROGRAMA, SEMESTRE))
+		 CODFAC           varchar(2)
+     );
 
 -- estructura de tabla para la tabla 'matriculados 1er semestre '
 
-CREATE TABLE MATRIC_1ER;
+CREATE TABLE MATRIC_1ER
 		 (PROGRAMA	 varchar(5),
 		 SEMESTRE		 varchar(5),
 		 MATRICULAD	int(3),
-		 CODFAC          varchar(2),
-     PRIMARY KEY (PROGRAMA, SEMESTRE))
+		 CODFAC          varchar(2)
+     );
 
 -- estructura de tabla para la tabla 'graduados'
 
-CREATE TABLE GRADUADOS;
+CREATE TABLE GRADUADOS
 		 (PROGRAMA		 varchar(5),
 		 SEMESTRE		 varchar(5),
 		 GRADUADOS	int(3),
-		 prom_stres float(4,1);
-		 CODFAC          varchar(2),
-     PRIMARY KEY (PROGRAMA, SEMESTRE))
+		 PROM_STRES float(4,1),
+		 CODFAC          varchar(2)
+     );
 
 -- estructura de tabla para la tabla 'graduados duracion'
-CREATE TABLE GRADUADOS_DURACION;
+CREATE TABLE GRADUADOS_DURACION
 		 (PROGRAMA		 varchar(5),
 		 SEMESTRE		 varchar(5),
 		 NRO_STRES  int(2),
 		 GRADUADOS	int(4),
-		 CODFAC          varchar(2),
-    PRIMARY KEY (PROGRAMA, SEMESTRE))
+		 CODFAC          varchar(2)
+    );
 
 -- estructura de tabla para la tabla 'retirados'
 
-CREATE TABLE RETIRADOS;
+CREATE TABLE RETIRADOS
 		 (PROGRAMA		 varchar(5),
 		 SEMESTRE		 varchar(5),
 		 RETIRADOS	int(3),
-		 CODFAC          varchar(2),
-     PRIMARY KEY (PROGRAMA, SEMESTRE))
+		 CODFAC          varchar(2)
+     );
 
 -- estructura de tabla para la tabla 'insuficientes'
-CREATE TABLE INSUFICIENTES;
+CREATE TABLE INSUFICIENTES
 		 (PROGRAMA		 varchar(5),
 		 SEMESTRE		 varchar(5),
 		 INSUFICIEN	int(3),
-		 CODFAC          varchar(2),
-     PRIMARY KEY (PROGRAMA, SEMESTRE))
+		 CODFAC          varchar(2)
+     );
 
 -- estructura de tabla para la tabla 'pensums vigentes'
 
-CREATE TABLE PENSUM;
+CREATE TABLE PENSUM
 		 (CODFAC	    varchar(2),
 		 PROGRAMA		varchar(5),
 		 VERSION	    varchar(2),
@@ -241,12 +236,12 @@ CREATE TABLE PENSUM;
 		 HORAS_TEOPRA   int(3),
 		 HORAS_ESPEC    int(3),
 		 CREDITOS       int(2),
-		 COMENTARIO     varchar(100),
-     PRIMARY KEY (PROGRAMA, VERSION, MATERIA))
+		 COMENTARIO     varchar(100)
+     );
 
 -- estructura de tabla para la tabla 'pensums no vigentes'
 
-CREATE TABLE PENSUM_NO_VIG;
+CREATE TABLE PENSUM_NO_VIG
 		 (CODFAC	    varchar(2),
 		 PROGRAMA		varchar(5),
 		 VERSION	    varchar(2),
@@ -262,11 +257,11 @@ CREATE TABLE PENSUM_NO_VIG;
 		 HORAS_TEOPRA   int(3),
 		 HORAS_ESPEC    int(3),
 		 CREDITOS       int(2),
-		 COMENTARIO     varchar(100),
-     PRIMARY KEY (PROGRAMA, VERSION, MATERIA))
+		 COMENTARIO     varchar(100)
+     );
 
 -- estructura de tabla para la tabla 'electivas de versiones vigentes'
-CREATE TABLE ELECTIVAS;
+CREATE TABLE ELECTIVAS
 		 (CODFAC	    varchar(2),
 		 PROGRAMA		varchar(5),
 		 VERSION	    varchar(2),
@@ -276,12 +271,12 @@ CREATE TABLE ELECTIVAS;
 		 BANCO	 		varchar(35),
 		 CREDITOS       int(2),
 		 ESTADO			varchar(8),
-		 COMENTARIO     varchar(100),
-     PRIMARY KEY (PROGRAMA, VERSION, MATERIA))
+		 COMENTARIO     varchar(100)
+     );
 
 -- estructura de tabla para la tabla 'electivas de versiones no vigentes'
 
-CREATE TABLE ELECTIVAS_NO_VIG;
+CREATE TABLE ELECTIVAS_NO_VIG
 		 (CODFAC	    varchar(2),
 		 PROGRAMA		varchar(5),
 		 VERSION	    varchar(2),
@@ -291,11 +286,11 @@ CREATE TABLE ELECTIVAS_NO_VIG;
 		 BANCO	 		varchar(35),
 		 CREDITOS       int(2),
 		 ESTADO			varchar(8),
-		 COMENTARIO     varchar(100),
-     PRIMARY KEY (PROGRAMA, VERSION, MATERIA))
+		 COMENTARIO     varchar(100)
+     );
 
 -- estructura de tabla para la tabla 'desercion  por cohorte'
-CREATE TABLE ADMITIDOS_EST;
+CREATE TABLE ADMITIDOS_EST
 		 (COHORTE	     varchar(5),
 		  STRE_INI		 varchar(5),
 		  STRE_FIN        varchar(5),
@@ -303,12 +298,11 @@ CREATE TABLE ADMITIDOS_EST;
 		  CEDULA		 varchar(11),
 		  ESTADO		 varchar(20),
 		  SEXO			 varchar(1),
-		  A�O_NAC		 varchar(4),
+		  ANO_NAC		 varchar(4),
 		  ESTRATO		 varchar(1),
 		  STRE_CORTE	 varchar(5),
 		  DESER_TEMP 	 varchar(1),
-		  CODFAC         varchar(2),      
-     PRIMARY KEY (PROGRAMA,CEDULA,COHORTE))  
+		  CODFAC         varchar(2))  ;
 
 -- estructura de tabla para la tabla 'admitidos graduados'
 
@@ -325,42 +319,40 @@ CREATE TABLE ADMITIDOS_GRAD
 		  STRE_INI		 varchar(5),
 		  STRE_FIN       varchar(5),
 		  stre_corte	 varchar(5),
-		  Stres_c_u		 n(3),
-		  Stres_c_g		 n(3),
+		  Stres_c_u		 int(3),
+		  Stres_c_g		 int(3),
 		  grad_alcor	 varchar(1),
 		  sexo			 varchar(1),
-		  a�o_nac		 varchar(4),
+		  ano_nac		 varchar(4),
 		  estrato		 varchar(1),
-		  CODFAC         varchar(2),
-      PRIMARY KEY (PROGRAMA,CEDULA,COHORTE))
+		  CODFAC         varchar(2));
 
 -- estructura de tabla para la tabla 'desercion'
 
-CREATE TABLE DESERCION;
+CREATE TABLE DESERCION
 		 (PROGRAMA		 varchar(5),
 		  COHORTE	     varchar(5),
 		  STRE_CORTE	 varchar(5),
-		  ADMITIDOS	     N(3),
-		  ACTIVOS	     N(3),
-		  CANCELOSEM     N(3),
-		  DESERTORES	 N(3),
-		  GRADUADOS		 N(3),
-		  PRECOCES   	 N(3),
-		  TEMPRANOS      N(3),
-		  TERMINOMAT   	 N(3),
-		  P_ACTIVOS	     N(6,3),
-  		  P_CANCELOS     N(6,3),
-		  P_DESERTOR	 N(6,3),
-		  P_GRADUADO	 N(6,3),
-		  P_PRECOCES   	 N(6,3),
-		  P_TEMPRANO     N(6,3),
-		  P_TERMINOM   	 N(6,3),
-		  CODFAC         varchar(2),
-      PRIMARY KEY (PROGRAMA,COHORTE))
+		  ADMITIDOS	     int(3),
+		  ACTIVOS	     int(3),
+		  CANCELOSEM     int(3),
+		  DESERTORES	 int(3),
+		  GRADUADOS		 int(3),
+		  PRECOCES   	 int(3),
+		  TEMPRANOS      int(3),
+		  TERMINOMAT   	 int(3),
+		  P_ACTIVOS	     float(6,3),
+  		  P_CANCELOS     float(6,3),
+		  P_DESERTOR	 float(6,3),
+		  P_GRADUADO	 float(6,3),
+		  P_PRECOCES   	 float(6,3),
+		  P_TEMPRANO     float(6,3),
+		  P_TERMINOM   	 float(6,3),
+		  CODFAC         varchar(2));
 
 -- estructura de tabla para la tabla 'desercion por periodo'
 
-CREATE TABLE DESERTORES;
+CREATE TABLE DESERTORES
 		 (PROGRAMA		 varchar(5),
 		  STRE_FINAL     varchar(5),
 		  CEDULA		 varchar(11),
@@ -369,24 +361,23 @@ CREATE TABLE DESERTORES;
 		  ANO_NAC		 varchar(4),
 		  ESTRATO		 varchar(1),
 		  CODFAC         varchar(2),
-		  STRE_DESER     varchar(5),
-      PRIMARY KEY (PROGRAMA,CEDULA,STRE_DESER))
+		  STRE_DESER     varchar(5));
 
 -- estructura de tabla para la tabla 'desercion per'
 
-CREATE TABLE DESERCION_PER;
+CREATE TABLE DESERCION_PER
 		 (PROGRAMA		 varchar(5),
 		  SEMESTRE		 varchar(5),
-		  MATRICULAD	 N(4),
-		  DESERTORES	 N(3),
-		  p_DESERCIO     N(6,3),
-		  P_RETENCIO     N(6,3),
+		  MATRICULAD	 int(4),
+		  DESERTORES	 int(3),
+		  p_DESERCIO     float(6,3),
+		  P_RETENCIO     float(6,3),
 		  CODFAC         varchar(2),
-		  IND_REG		 varchar(1),
-		   PRIMARY KEY (PROGRAMA,SEMESTRE))
+		  IND_REG		 varchar(1)
+		  );
 
 -- estructura de tabla para la tabla 'profesores de catedra'
-CREATE TABLE COCA; 
+CREATE TABLE COCA 
 		 (SEMESTRE	 varchar(5),
 		 CEDULA		 varchar(11),
 		 NOMBRE		 varchar(53),
@@ -401,12 +392,11 @@ CREATE TABLE COCA;
 		 SDO_APELL	 varchar(15),
 		 NOMBRES	 varchar(30),
 		 HORAS		int(4),
-		 RESERVA	float(12,2),
-     PRIMARY KEY (CEDULA,SEMESTRE))
+		 RESERVA	float(12,2));
 
 -- estructura de tabla para la tabla 'produccion'
 
-CREATE TABLE PRODUCCION; 
+CREATE TABLE PRODUCCION 
 		 (CEDULA					varchar(11),
 		 FECHA_VIG                  DATE,
 		 COD_PROD	                int(7),
@@ -433,12 +423,11 @@ CREATE TABLE PRODUCCION;
 		 CATEG_MATE					varchar(20),
 		 TIPO_MATER					varchar(22),
 		 CAT_MIN					varchar(13),
-		 CAT_OBS					varchar(13),
-      PRIMARY KEY (CEDULA,COD_PROD))
+		 CAT_OBS					varchar(13));
 
 -- estructura de tabla para la tabla 'produccion de catedras'
 
-CREATE TABLE PRODUCCION_CAT; 
+CREATE TABLE PRODUCCION_CAT 
 		 (CEDULA					varchar(11),
 		 FECHA_VIG                  DATE,
 		 COD_PROD	                int(7),
@@ -465,12 +454,11 @@ CREATE TABLE PRODUCCION_CAT;
 		 CATEG_MATE					varchar(20),
 		 TIPO_MATER					varchar(22),
 		 CAT_MIN					varchar(13),
-		 CAT_OBS					varchar(13),
-     PRIMARY KEY (CEDULA,COD_PROD))
+		 CAT_OBS					varchar(13));
 
 
 -- estructura de tabla para la tabla 'titulos'
-CREATE TABLE TITULOS; 
+CREATE TABLE TITULOS 
 		 (CEDULA				varchar(11),
 		 TIPOPROG				varchar(5),
 		 FECHA_VIG              DATE,
@@ -479,12 +467,11 @@ CREATE TABLE TITULOS;
 		 NOMBRE_PROG            varchar(100),
 		 COD_INST               varchar(15),
 		 INSTITUCION            varchar(100),
-		 PAIS                   varchar(4),
-     PRIMARY KEY (CEDULA,COD_PROD,COD_INST,FECHA_GRAD))
+		 PAIS                   varchar(4));
 
 -- estructura de tabla para la tabla 'titulos catedra'
 
-CREATE TABLE TITULOS_CAT; 
+CREATE TABLE TITULOS_CAT 
 		 (CEDULA				varchar(11),
 		 TIPOPROG				varchar(5),
 		 FECHA_VIG              DATE,
@@ -493,12 +480,11 @@ CREATE TABLE TITULOS_CAT;
 		 NOMBRE_PROG            varchar(100),
 		 COD_INST               varchar(15),
 		 INSTITUCION            varchar(100),
-		 PAIS                   varchar(4),
-     PRIMARY KEY (CEDULA,COD_PROD,COD_INST,FECHA_GRAD))
+		 PAIS                   varchar(4));
 
 -- estructura de tabla para la tabla 'profesores regulares y ocasionales'
 
-CREATE TABLE PROFESORES;
+CREATE TABLE PROFESORES
 		 (SEMESTRE		varchar(5),
 		 CODFAC			varchar(2),
 		 CCOSTO			varchar(8),
@@ -519,65 +505,4 @@ CREATE TABLE PROFESORES;
 		 TIPO_DOC	    varchar(2),
 		 NOMBRES		varchar(30),
 		 PRIM_APELL		varchar(15),
-		 SDO_APELL		varchar(15),
-     PRIMARY KEY (CEDULA,SEMESTRE))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		 SDO_APELL		varchar(15));
